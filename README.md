@@ -1,3 +1,11 @@
+```
+test-lock-format-v01 v0.1.0
+└── requests v2.32.5
+    ├── certifi v2025.11.12
+    ├── charset-normalizer v3.4.4
+    ├── idna v3.11
+    └── urllib3 v2.5.0
+```
 ## Test T-P1-005: Lock File Format Compatibility
 
 **Category:** File Format Parsing
