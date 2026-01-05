@@ -1,0 +1,31 @@
+[project]
+name = "service-a-legacy"
+version = "1.0.0"
+description = "Service A: Legacy UV 0.4.x compatible configuration"
+requires-python = ">=3.10"
+
+dependencies = [
+    # Core web framework
+    "fastapi>=0.109.0",
+    "uvicorn[standard]>=0.27.0",
+
+    # Database
+    "sqlalchemy>=2.0.25",
+    "asyncpg>=0.29.0",
+
+    # Utilities
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.6.0",
+]
+
+# Legacy UV 0.4.x format (still works but deprecated in UV 0.7+)
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "httpx>=0.26.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
