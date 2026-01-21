@@ -1,0 +1,99 @@
+{
+    "description": "Autotest configuration file for dependency tree detection validation",
+    "version": 1.4,
+    "base_config": {
+        "validate_scan_output": true,
+        "_comment_validate_scan_output": "Whether to validate the scan output/exit code. Options: true | false. Default: true",
+        "scan_output": {
+            "_security_scan_report_conclusion": "failure",
+            "_comment_security_scan_report_conclusion": "Optional. Expected scan report conclusion. Options: 'success' | 'failure'. This validates the security scan result status. If not provided, this check will not be performed.",
+            "total_libs_scanned": {
+                "gte": 20
+            },
+            "_comment_total_libs_scanned": "Expected number of libraries scanned with comparison operator. Validates that the scan processed libraries.",
+            "expected_messages": [
+              {
+                "operator": "regex",
+                "value": "Scan Warnings: The scan completed with warnings. The integration encountered issues with one or more projects in this repository. Consequently, there may be gaps in the coverage of open-source dependencies used in the repository.",
+                "level": "warning",
+                "scan_details_report":
+                {
+                  "filePath": ".*/service-b/pyproject.toml",
+                  "description": "One or more of the installations failed",
+                  "details": "mend dependency (SCA) scan does not support scanning projects with UV versions equal to or lower than 0.4.30 (version: 0.2.30)"
+                }
+              }
+            ]
+        },
+        "validate_dependency_tree": true,
+        "_comment_validate_dependency_tree": "Whether to validate the dependency tree. Options: true | false. Default: true",
+        "dependency_tree": {
+            "check_dependency_tree_detection_status": true,
+            "_comment_check_dependency_tree_detection_status": "Whether to check if dependency tree was successfully detected. Options: true | false. Default: true",
+            "expected_total_dependencies_number": {
+                "eq": 34
+            },
+            "expected_direct_dependencies_number": {
+                "eq": 3
+            },
+            "expected_transitive_dependencies_number": {
+                "eq": 31
+            },
+            "_comment_expected_dependencies_number": "Optional. Expected number of dependencies with comparison operator. Operators: gt (>), gte (>=), lt (<), lte (<=), eq (==). If not provided, this check will not be performed.",
+            "direct_dependencies_names_list": {
+                "eq": [
+                    "shared-lib",
+                    "new-service",
+                    "legacy-service"
+                ]
+            },
+            "transitive_dependencies_names_list": {
+                "eq": [
+                    "pydantic-core",
+                    "click",
+                    "typing-inspection",
+                    "sqlalchemy",
+                    "annotated-doc",
+                    "six",
+                    "requests",
+                    "idna",
+                    "fastapi",
+                    "starlette",
+                    "h11",
+                    "python-dateutil",
+                    "annotated-types",
+                    "pydantic",
+                    "urllib3",
+                    "anyio",
+                    "uvicorn",
+                    "certifi",
+                    "charset-normalizer",
+                    "shared-lib",
+                    "typing-extensions",
+                    "greenlet"
+                ]
+            },
+            "_comment_dependencies_names_list": "Optional. Check specific libraries in direct dependencies. Operators: eq (==), contains (all items from expected list in actual), in(all items from actual list in expected), nin(actual list does not contain provided libs). If not provided, this check will not be performed.",
+            "validate_agent_versions": true,
+            "expected_agent_version": "",
+            "expected_plugin_version": "",
+            "_comment_agent_versions": "Optional. Expected agent and plugin versions. If not provided, this check will not be performed."
+        },
+        "validate_vulnerabilities_table": true,
+        "_comment_validate_vulnerabilities_table": "Whether to validate the vulnerabilities table. Options: true | false. Default: true",
+        "vulnerabilities_table": {
+            "check_vulnerabilities_table_structure": true,
+            "expected_total_vulnerabilities_number": {
+                "gte": 0
+            },
+            "vulnerabilities_ids_list": {
+                "contains": []
+            },
+            "_comment_ids_names_list": "Optional. Check specific libs ids (WS-2018-0111, CVE-2021-44906). Operators: eq (==), contains (all items from expected list in actual), in(all items from actual list in expected), nin(actual list does not contain provided libs). If not provided, this check will not be performed.",
+            "vulnerabilities_names_list": {
+                "contains": []
+            },
+            "_comment_vulnerabilities_names_list": "Optional. Check specific libs names (minimist-0.0.8.tgz). Operators: eq (==), contains (all items from expected list in actual), in(all items from actual list in expected), nin(actual list does not contain provided libs). If not provided, this check will not be performed."
+        }
+    }
+}
