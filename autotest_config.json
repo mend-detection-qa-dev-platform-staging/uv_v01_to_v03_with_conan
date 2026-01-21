@@ -8,7 +8,7 @@
             "_security_scan_report_conclusion": "failure",
             "_comment_security_scan_report_conclusion": "Optional. Expected scan report conclusion. Options: 'success' | 'failure'. This validates the security scan result status. If not provided, this check will not be performed.",
             "total_libs_scanned": {
-                "gte": 20
+                "eq": 1
             },
             "_comment_total_libs_scanned": "Expected number of libraries scanned with comparison operator. Validates that the scan processed libraries.",
             "expected_messages": [
@@ -31,47 +31,23 @@
             "check_dependency_tree_detection_status": true,
             "_comment_check_dependency_tree_detection_status": "Whether to check if dependency tree was successfully detected. Options: true | false. Default: true",
             "expected_total_dependencies_number": {
-                "eq": 34
+                "eq": 2
             },
             "expected_direct_dependencies_number": {
-                "eq": 3
+                "eq": 2
             },
             "expected_transitive_dependencies_number": {
-                "eq": 31
+                "eq": 0
             },
             "_comment_expected_dependencies_number": "Optional. Expected number of dependencies with comparison operator. Operators: gt (>), gte (>=), lt (<), lte (<=), eq (==). If not provided, this check will not be performed.",
             "direct_dependencies_names_list": {
                 "eq": [
-                    "shared-lib",
-                    "new-service",
-                    "legacy-service"
+                    "zlib",
+                    "test1.c"
                 ]
             },
             "transitive_dependencies_names_list": {
-                "eq": [
-                    "pydantic-core",
-                    "click",
-                    "typing-inspection",
-                    "sqlalchemy",
-                    "annotated-doc",
-                    "six",
-                    "requests",
-                    "idna",
-                    "fastapi",
-                    "starlette",
-                    "h11",
-                    "python-dateutil",
-                    "annotated-types",
-                    "pydantic",
-                    "urllib3",
-                    "anyio",
-                    "uvicorn",
-                    "certifi",
-                    "charset-normalizer",
-                    "shared-lib",
-                    "typing-extensions",
-                    "greenlet"
-                ]
+                 "eq": []
             },
             "_comment_dependencies_names_list": "Optional. Check specific libraries in direct dependencies. Operators: eq (==), contains (all items from expected list in actual), in(all items from actual list in expected), nin(actual list does not contain provided libs). If not provided, this check will not be performed.",
             "validate_agent_versions": true,
@@ -84,7 +60,7 @@
         "vulnerabilities_table": {
             "check_vulnerabilities_table_structure": true,
             "expected_total_vulnerabilities_number": {
-                "gte": 0
+                "gte": 1
             },
             "vulnerabilities_ids_list": {
                 "contains": []
