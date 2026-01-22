@@ -14,13 +14,13 @@
             "expected_messages": [
               {
                 "operator": "regex",
-                "value": "Scan Warnings: The scan completed with warnings. The integration encountered issues with one or more projects in this repository. Consequently, there may be gaps in the coverage of open-source dependencies used in the repository.",
+                "value": "DELETE Scan Warnings: The scan completed with warnings. The integration encountered issues with one or more projects in this repository. Consequently, there may be gaps in the coverage of open-source dependencies used in the repository.",
                 "level": "warning",
                 "scan_details_report":
                 {
-                  "filePath": ".*/service-b/pyproject.toml",
-                  "description": "One or more of the installations failed",
-                  "details": "mend dependency (SCA) scan does not support scanning projects with UV versions equal to or lower than 0.4.30 (version: 0.2.30)"
+                  "filePath": ".*/service-b/pyproject.toml DELETE",
+                  "description": "One or more of the installations failedDELETE",
+                  "details": "mend dependency (SCA) scan does not support scanning projects with UV versions equal to or lower than 0.4.30 (version: 0.2.30)DELETE"
                 }
               }
             ]
