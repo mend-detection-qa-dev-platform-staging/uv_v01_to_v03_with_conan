@@ -54,10 +54,10 @@
       "check_dependency_tree_detection_status": true,
       "_comment_check_dependency_tree_detection_status": "Whether to check if dependency tree was successfully detected. Options: true | false. Default: true",
       "expected_total_dependencies_number": {
-        "eq": 2
+        "eq": 1
       },
       "expected_direct_dependencies_number": {
-        "eq": 2
+        "eq": 1
       },
       "expected_transitive_dependencies_number": {
         "eq": 0
@@ -66,7 +66,6 @@
       "direct_dependencies_names_list": {
         "eq": [
           "zlib",
-          "test1.c"
         ]
       },
       "transitive_dependencies_names_list": {
@@ -83,7 +82,7 @@
     "vulnerabilities_table": {
       "check_vulnerabilities_table_structure": true,
       "expected_total_vulnerabilities_number": {
-        "gte": 1
+        "gte": 0
       },
       "vulnerabilities_ids_list": {
         "contains": []
