@@ -65,7 +65,7 @@
       "_comment_expected_dependencies_number": "Optional. Expected number of dependencies with comparison operator. Operators: gt (\u003e), gte (\u003e\u003d), lt (\u003c), lte (\u003c\u003d), eq (\u003d\u003d). If not provided, this check will not be performed.",
       "direct_dependencies_names_list": {
         "eq": [
-          "zlib",
+          "zlib"
         ]
       },
       "transitive_dependencies_names_list": {
